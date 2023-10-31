@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './Components/Navbar';
+import { AllRoutes } from './AllRoutes/AllRoutes';
 
 function App() {
     return (
         <div className="App">
-            <h1 className="text-3xl font-bold underline">
-                Custom Form Builder using react and tailwindcss
-            </h1>
+            <Navbar />
+            
+            <AllRoutes />
         </div>
     );
 }
