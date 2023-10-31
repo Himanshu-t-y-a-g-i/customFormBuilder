@@ -5,7 +5,7 @@ const initState = {
     isError: false,
     isAuth: false,
     token: "",
-    alert: false,
+    isAlert: false,
     alertDesc: "",
     alertType: ""
 }
@@ -13,17 +13,17 @@ const initState = {
 export const reducer = (state = initState, { type, payload }) => {
     switch (type) {
         case CLEARALERT:
-            return { ...state, alert: false, alertDesc: "", alertType: "" };
+            return { ...state, isAlert: false, alertDesc: "", alertType: "" };
         case LOADING:
-            return { ...state, isLoading: true, isError: false, alert: true, alertDesc: "Loading", alertType: "loading" };
+            return { ...state, isLoading: true, isError: false, isAlert: true, alertDesc: "Loading", alertType: "loading" };
         case ERROR:
-            return { ...state, isLoading: false, isError: true, alert: true, alertDesc: payload.msg || payload, alertType: "error" };
+            return { ...state, isLoading: false, isError: true, isAlert: true, alertDesc: payload.msg || payload, alertType: "error" };
         case LOGIN:
-            return { ...state, isLoading: false, isError: false, isAuth: true, token: payload.token, alert: true, alertDesc: "User Logged In", alertType: "success" };
+            return { ...state, isLoading: false, isError: false, isAuth: true, token: payload.token, isAlert: true, alertDesc: "User Logged In", alertType: "success" };
         case LOGOUT:
-            return { ...state, isLoading: false, isError: false, isAuth: false, token: "", response: "User Logged Out", alert: true, alertDesc: "User Logged Out", alertType: "success" };
+            return { ...state, isLoading: false, isError: false, isAuth: false, token: "", response: "User Logged Out", isAlert: true, alertDesc: "User Logged Out", alertType: "success" };
         case SIGNUP:
-            return { ...state, isLoading: false, isError: false, alert: true, alertDesc: "User Registered", alertType: "success" };
+            return { ...state, isLoading: false, isError: false, isAlert: true, alertDesc: "User Registered", alertType: "success" };
         case LSCHECK:
             return { ...state, isAuth: true, token: payload }
         default:

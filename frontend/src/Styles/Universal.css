@@ -1,0 +1,46 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.form>p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.form>form>* {
+    margin-bottom: 30px;
+}
+
+.form>form>label {
+    margin-bottom: 10px;
+}
+
+.form input[type="submit"] {
+    background-color: #d1345b;
+    color: white;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #6d6d6d;
+    cursor: pointer;
+}
+
+/* Alert animation */
+
+.alert {
+    animation: animateAlert 500ms;
+}
+
+@keyframes animateAlert {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

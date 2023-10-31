@@ -1,3 +1,5 @@
+import { Alert } from "@chakra-ui/react"
+
 export const Home = () => {
     return (
         <div>

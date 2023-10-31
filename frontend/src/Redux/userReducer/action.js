@@ -37,18 +37,18 @@ export const lscheckF = data => dispatch => {
 
 export const loginF = data => dispatch => {
     dispatch(loading())
-    axios.post(`${process.env.REACT_APP_STREAK_URL}/user/login`, data).then(res => {
+    axios.post(`${process.env.REACT_APP_FORMCREATOR_URL}/user/login`, data).then(res => {
         const obj = {
             token: res.data.token,
             isAuth: true
         }
-        localStorage.setItem("streakAppUserData", JSON.stringify(obj));
+        localStorage.setItem("formCreatorAppData", JSON.stringify(obj));
         dispatch(login(res.data));
         setTimeout(() => {
             dispatch(clearalert());
         }, alertTime)
     }).catch(e => {
-        const err = e.response.data || e.message;
+        const err = (e.response && e.response.data) || e.message;
         dispatch(error(err));
         setTimeout(() => {
             dispatch(clearalert());
@@ -62,7 +62,7 @@ export const logoutF = () => dispatch => {
         isAuth: false,
         token: ""
     }
-    localStorage.setItem("streakAppUserData", JSON.stringify(obj));
+    localStorage.setItem("formCreatorAppData", JSON.stringify(obj));
     setTimeout(() => {
         dispatch(clearalert());
     }, alertTime)
@@ -70,13 +70,16 @@ export const logoutF = () => dispatch => {
 
 export const signupF = data => dispatch => {
     dispatch(loading());
-    axios.post(`${process.env.REACT_APP_STREAK_URL}/user/register`, data).then(res => {
+    console.log(data);
+    axios.post(`${process.env.REACT_APP_FORMCREATOR_URL}/user/register`, data).then(res => {
+        console.log(res)
         dispatch(signup());
         setTimeout(() => {
             dispatch(clearalert());
         }, alertTime)
     }).catch(e => {
-        const err = e.response.data || e.message;
+        console.log(e)
+        const err = (e.response && e.response.data) || e.message;
         dispatch(error(err));
         setTimeout(() => {
             dispatch(clearalert());
