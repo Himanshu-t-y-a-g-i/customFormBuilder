@@ -1,0 +1,16 @@
+Backend Structure:
+
+FormDatabase:
+form_id(auto-generated)
+title
+title_image_location
+form_creation_date
+
+
+QuestionDatabase:
+ques_id(auto-generated)
+form_id(imported from form to establish DB relationship)
+ques_category
+ques_title
+ques_desc
+ques_title_image/s
